@@ -557,7 +557,7 @@ button:focus {
 .dropdown:hover .dropdown-position-list {
   visibility: visible;
   opacity: 1;
-  top: 70px;
+  top: 41px;
 }
 
 .dropdown-position-list {

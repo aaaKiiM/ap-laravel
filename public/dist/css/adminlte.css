@@ -5198,8 +5198,8 @@ input[type="button"].btn-block {
 
 .badge1 {
     display: inline-block;
-    padding: 10px;
-    font-size: 100%;
+    padding: 7px;
+    font-size: 70%;
     font-weight: 700;
     line-height: 1;
     text-align: center;
