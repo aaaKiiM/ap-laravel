@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-control{
+    width: 600px;
+}
+.cart-color{
+    color: #ffff;
+}
+.pemisah{
+    width: 1.2px;
+    min-width: 1.2px;
+    height: 38px;
+    background: #e0e0e0;
+}
+.pemisah1{
+    width: 1.2px;
+    min-width: 1.2px;
+    height: 20px;
+    background: #e0e0e0;
+    margin-top: 10px;
+}
