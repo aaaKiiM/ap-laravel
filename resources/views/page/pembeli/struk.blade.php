@@ -35,7 +35,7 @@
                 <div class="col-lg-12">
                     <div class="account-card">
                         <div class="account-title">
-                            <h4>order recieved</h4>
+                            <h4>Pesanan Diterima</h4>
                         </div>
                         <div class="account-content">
                             <div class="invoice-recieved">
@@ -50,7 +50,7 @@
                 <div class="col-lg-6">
                     <div class="account-card">
                         <div class="account-title">
-                            <h4>Order Details</h4>
+                            <h4>Detail Pesanan</h4>
                         </div>
                         <div class="account-content">
                             <ul class="invoice-details">
@@ -69,7 +69,7 @@
                 <div class="col-lg-6">
                     <div class="account-card">
                         <div class="account-title">
-                            <h4>Amount Details</h4>
+                            <h4>Total</h4>
                         </div>
                         <div class="account-content">
                             <ul class="invoice-details">

@@ -42,16 +42,16 @@ Route::get('/penjual/verifikasi', [PenjualController::class, 'verifikasi'])->mid
 Route::post('/penjual/validator/{ID}', [PenjualController::class, 'validasi'])->middleware('check');
 
 //Route Penjual
-Route::get('/pesan', [PesanController::class, 'tampilpesan'])->middleware('Batas');
-Route::put('/pesan/dikirim/{ID}', [PesanController::class, 'dikirim']);
+Route::get('/penjual/pesan', [PesanController::class, 'tampilpesan'])->middleware('Batas');
+Route::put('/penjual/pesan/dikirim/{ID}', [PesanController::class, 'dikirim']);
 
 //Route Penjual Product
-Route::get('/produks', [ProdukController::class, 'tampil'])->middleware('Batas');
-Route::get('/produk/form', [ProdukController::class, 'form'])->middleware('Batas');
-Route::post('/produk/store', [ProdukController::class, 'store'])->middleware('Batas');
-Route::get('/produk/edit/{ID}', [ProdukController::class, 'edit'])->middleware('Batas');
-Route::put('/produk/update/{ID}', [ProdukController::class, 'update'])->middleware('Batas');
-Route::delete('/produk/delete/{ID}', [ProdukController::class, 'delete'])->middleware('Batas');
+Route::get('/penjual/produks', [ProdukController::class, 'tampil'])->middleware('Batas');
+Route::get('/penjual/produk/form', [ProdukController::class, 'form'])->middleware('Batas');
+Route::post('/penjual/produk/store', [ProdukController::class, 'store'])->middleware('Batas');
+Route::get('/penjual/produk/edit/{ID}', [ProdukController::class, 'edit'])->middleware('Batas');
+Route::put('/penjual/produk/update/{ID}', [ProdukController::class, 'update'])->middleware('Batas');
+Route::put('/penjual/produk/nonaktif/{ID}', [ProdukController::class, 'nonaktif'])->middleware('Batas');
 
 //Route Admin
 Route::get('/admn', [AdminController::class, 'index'])->middleware('verAdmin')->name('admin');

@@ -21,7 +21,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-primary">
-                    <form action="/produk/store" method="POST" enctype="multipart/form-data">
+                    <form action="/penjual/produk/store" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <input type="hidden" value="{{auth()->user()->toko->id}}" name="idtoko">

@@ -27,8 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="/produk/form" class="btn btn-primary">Tambah Produk</a>
-
+                                <a href="/penjual/produk/form" class="btn btn-primary">Tambah Produk</a>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -55,63 +54,69 @@
                                             <td class="text-center">{{ $nomor++ }}</td>
                                             <td class="text-center">{{ $isi->nama_kue }}</td>
                                             <td class="text-center">{{ $isi->kategoris->kategori }}</td>
-                                            <td class="text-center">
-                                                <a href="/produk/edit/{{$isi->id}}" class="btn btn-primary btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default1{{ $isi->id }}">Hapus</a>
-                                                <div class="modal fade" id="modal-default1{{ $isi->id }}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Hapus Kategori</h4>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <p>Yakin Produk <b>{{ $isi->nama_kue }}</b> Dihapus ?</p>
-                                                                </div>
-                                                                <div class="modal-footer justify-content-between">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                                    <form action="/produk/{{$isi->id}}" method="post">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="submit" class="btn btn-primary">Hapus</button>
-                                                                    </form>
-                                                                </div>
-                                                            </form>
+                                            @if ($isi->is_active == 1 && $isi->stock > 0)
+                                                <td class="text-center">
+                                                    <a href="/penjual/produk/edit/{{$isi->id}}" class="btn btn-primary btn-sm">Edit</a>
+                                                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default1{{ $isi->id }}">Nonaktifkan</a>
+                                                    <div class="modal fade" id="modal-default1{{ $isi->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Nonaktifkan Produk {{ $isi->nama_kue }}</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p>Yakin Produk <b>{{ $isi->nama_kue }}</b> Dinonaktifkan ?</p>
+                                                                    </div>
+                                                                    <div class="modal-footer justify-content-between">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                        <form action="/penjual/produk/nonaktif/{{$isi->id}}" method="post">
+                                                                            @csrf
+                                                                            @method('PUT')
+                                                                            <button type="submit" class="btn btn-primary">Setuju</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <!-- /.modal-content -->
                                                         </div>
-                                                        <!-- /.modal-content -->
+                                                        <!-- /.modal-dialog -->
                                                     </div>
-                                                    <!-- /.modal-dialog -->
-                                                </div>
-                                                <!-- Modal Edit -->
-                                                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default{{ $isi->id }}">Detail</a>
-                                                <div class="modal fade" id="modal-default{{ $isi->id }}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Detail Produk</h4>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <p>Nama Kue     : {{ $isi->nama_kue }}</p>
-                                                                    <p>Kategori     : {{ $isi->kategoris->kategori }}</p>
-                                                                    <p>Harga        : Rp. {{ $isi->harga}}</p>
-                                                                    <p>Keterangan   : {{ $isi->keterangan }}</p>
-                                                                    <p>Stock        : {{ $isi->stock }}</p>
-                                                                </div>
-                                                                <div class="modal-footer justify-content-between">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
+                                                    <!-- Modal Edit -->
+                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default{{ $isi->id }}">Detail</a>
+                                                    <div class="modal fade" id="modal-default{{ $isi->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Detail Produk</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p>Nama Kue     : {{ $isi->nama_kue }}</p>
+                                                                        <p>Kategori     : {{ $isi->kategoris->kategori }}</p>
+                                                                        <p>Harga        : Rp. {{ $isi->harga}}</p>
+                                                                        <p>Keterangan   : {{ $isi->keterangan }}</p>
+                                                                        <p>Stock        : {{ $isi->stock }}</p>
+                                                                    </div>
+                                                                    <div class="modal-footer justify-content-between">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <!-- /.modal-content -->
                                                         </div>
-                                                        <!-- /.modal-content -->
+                                                        <!-- /.modal-dialog -->
                                                     </div>
-                                                    <!-- /.modal-dialog -->
-                                                </div>
-                                            </td>
+                                                </td>
+                                            @elseif ($isi->is_active == 1 && $isi->stock < 1)
+                                                <td class="text-center">Stock Habis</td>
+                                            @elseif ($isi->is_active == 0 && $isi->stock > 0)
+                                                <td class="text-center">Produk Dinonaktifkan</td>
+                                            @endif
                                         </tr>
                                         @empty
                                             <div class="col"></div>

@@ -208,6 +208,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="checkout-proced">
+                        <a href="/konfirmasi" class="btn btn-inline">Melakukan Pembayaran</a>
+                    </div>
                     {{-- <div class="col-lg-12">
                         <div class="account-card">
                             <div class="account-title">
@@ -373,12 +376,9 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="checkout-check">
+                            <div class="checkout-check">
                                 <input type="checkbox" id="checkout-check">
                                 <label for="checkout-check">By making this purchase you agree to our <a href="#">Terms and Conditions</a>.</label>
-                            </div> --}}
-                            <div class="checkout-proced">
-                                <a href="/konfirmasi" class="btn btn-inline">Melakukan Pembayaran</a>
                             </div>
                         </div>
                     </div> --}}

@@ -30,6 +30,14 @@ class ProdukController extends Controller
         return view('page.penjual.produk1.index', compact('produk','nomor'));
     }
 
+    public function nonaktif($id)
+    {
+        $produk = Produk::find($id);
+        $produk->is_active = 0;
+        $produk->save();
+        return redirect('/penjual/produks');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -71,7 +79,7 @@ class ProdukController extends Controller
         $produk->foto = $request->foto->getClientOriginalName();
         $produk->save();
 
-        return redirect('/produks');
+        return redirect('/penjual/produks');
     }
 
     /**
@@ -118,7 +126,7 @@ class ProdukController extends Controller
         $produk->stock = $request->stock;
         $produk->save();
 
-        return redirect('/produk');
+        return redirect('/penjual/produks');
     }
 
     /**

@@ -157,6 +157,6 @@ class PesanController extends Controller
         $pesan->dikirim = 1;
         $pesan->save();
 
-        return redirect('/pesan');
+        return redirect('/penjual/pesan');
     }
 }

@@ -77,7 +77,7 @@
                                             </td>
                                             <td class="text-center">
                                                 @if ($isi->dikirim == 0)
-                                                    <form action="/pesan/dikirim/{{ $isi->id }}" method="post">
+                                                    <form action="/penjual/pesan/dikirim/{{ $isi->id }}" method="post">
                                                         @csrf
                                                         @method("PUT")
                                                         <button type="submit" class="btn btn-outline-success badge1 btn-sm"><i class="fa-solid fa-square-arrow-up-right"></i> Kirim</button>
