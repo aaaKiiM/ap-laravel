@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nama_toko');
             $table->string('alamat_toko');
             $table->string('no_hp_toko');
+            $table->integer('confirmed')->default('0');
             $table->timestamps();
         });
     }

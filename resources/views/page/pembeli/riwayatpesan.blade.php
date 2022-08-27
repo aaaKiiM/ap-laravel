@@ -17,10 +17,6 @@
                 BANNER PART END
     =======================================-->
 
-    {{-- <?php
-        $pesan = \App\Models\Pesan::where('users_id', Auth::user()->id)->where('status',1)->count();
-    ?> --}}
-
     <!--=====================================
                         ORDERLIST PART START
             =======================================-->
@@ -137,8 +133,12 @@
                                                 <p>{{ $isi->tanggal }}</p>
                                             </li>
                                             <li>
+                                                <h6>Biaya Admin</h6>
+                                                <p>Rp. 1.000</p>
+                                            </li>
+                                            <li>
                                                 <h6>Total Harga</h6>
-                                                <p>{{ $isi->total_harga }}</p>
+                                                <p>Rp. {{ number_format( $isi->total_harga+1000,0,",",".") }}</p>
                                             </li>
                                             <li>
                                                 <h6>Diantar Ke</h6>
@@ -146,12 +146,45 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <div class="account-title">
-                                            <h4> </h4>
-                                            <button data-bs-toggle="modal" data-bs-target="#contact-add">add contact</button>
+                                    @if ($isi->bukti == 'default.png')
+                                        <div class="col-lg-12">
+                                            <div class="account-title">
+                                                <h4> </h4>
+                                                <button data-bs-toggle="modal" data-bs-target="#contact-add{{ $isi->id }}">Kirim Bukti Pembayaran</button>
+                                            </div>
+                                            <div class="modal fade" id="contact-add{{ $isi->id }}">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <button class="modal-close" data-bs-dismiss="modal"><i class="icofont-close"></i></button>
+                                                        <form class="modal-form" action="/pembeli/bukti/{{ $isi->id }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="form-title">
+                                                                <h3>Kirim Bukti Pembayaran</h3>
+                                                            </div>
+                                                            <!-- <div class="form-group">
+                                                                <label class="form-label">title</label>
+                                                                <select class="form-select">
+                                                                    <option selected>choose title</option>
+                                                                    <option value="primary">primary</option>
+                                                                    <option value="secondary">secondary</option>
+                                                                </select>
+                                                            </div> -->
+                                                            <div class="form-group">
+                                                                <label class="form-label">Foto</label>
+                                                                <input class="form-control @error ('foto') is-invalid @enderror" type="file" name="bukti">
+                                                                @error('bukti')
+                                                                    <div class="text-danger">{{$message}}</div>
+                                                                @enderror
+                                                            </div>
+                                                            <button class="form-btn" type="submit">Kirim</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @else
+                                    @endif
                                     {{-- <div class="col-lg-4">
                                         <ul class="orderlist-details">
                                             <li>
@@ -875,8 +908,7 @@
                     </div> --}}
 
                 </div>
-            </div>
-            <div class="row">
+                <div class="row">
                 <div class="col-lg-12">
                     <ul class="pagination">
                         <li class="page-item">
@@ -896,36 +928,13 @@
                         </li>
                     </ul>
                 </div>
+                </div>
             </div>
         </div>
     </section>
     <!--=====================================
                         ORDERLIST PART END
             =======================================-->
-    <div class="modal fade" id="contact-add">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <button class="modal-close" data-bs-dismiss="modal"><i class="icofont-close"></i></button>
-            <form class="modal-form" action="" method="POST">
-                @csrf
-                <div class="form-title">
-                    <h3>Kirim Bukti Pembayaran</h3>
-                </div>
-                <!-- <div class="form-group">
-                    <label class="form-label">title</label>
-                    <select class="form-select">
-                        <option selected>choose title</option>
-                        <option value="primary">primary</option>
-                        <option value="secondary">secondary</option>
-                    </select>
-                </div> -->
-                <div class="form-group">
-                    <label class="form-label">Foto</label>
-                    <input class="form-control" type="file">
-                </div>
-                <button class="form-btn" type="submit">Kirim</button>
-            </form>
-        </div>
-    </div>
+
 </div>
 @endsection

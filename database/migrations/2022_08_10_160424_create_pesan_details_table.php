@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('produks_id');
             $table->integer('jumlah');
             $table->integer('total_harga');
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }

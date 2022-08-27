@@ -16,10 +16,14 @@ return new class extends Migration
         Schema::create('pesans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('users_id');
+            $table->bigInteger('penjual_id');
             $table->integer('status')->default('0');
             $table->string('no_faktur');
             $table->date('tanggal');
             $table->integer('total_harga');
+            $table->string('bukti')->default('default.png');
+            $table->integer('dibayar')->default('0');
+            $table->integer('dikirim')->default('0');
             $table->timestamps();
         });
     }

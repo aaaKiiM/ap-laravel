@@ -39,10 +39,10 @@
                         </div>
                         <div class="account-content">
                             <div class="invoice-recieved">
-                                <h6>order number <span>{{ $pesandetail->pesan->no_faktur }}</span></h6>
-                                <h6>order date <span>{{ $pesandetail->pesan->tanggal }}</span></h6>
-                                <h6>total amount <span>Rp. {{ number_format( $pesandetail->total_harga,0,",",".") }}</span></h6>
-                                <h6>payment method <span>Cash on delivery</span></h6>
+                                <h6>No Faktur <span>{{ $pesandetail->pesan->no_faktur }}</span></h6>
+                                <h6>Tanggal Pesan <span>{{ $pesandetail->pesan->tanggal }}</span></h6>
+                                <h6>Total Harga <span>Rp. {{ number_format( $pesandetail->total_harga,0,",",".") }}</span></h6>
+                                <h6>Metode Pembayaran <span>Transfer</span></h6>
                             </div>
                         </div>
                     </div>
@@ -74,12 +74,31 @@
                         <div class="account-content">
                             <ul class="invoice-details">
                                 <li>
-                                    <h6>Payment Method</h6>
-                                    <p>Cash On Delivery</p>
+                                    <h6>Metode Pembayaran</h6>
+                                    <p>Transfer</p>
                                 </li>
                                 <li>
-                                    <h6>Total<small>(PPN)</small></h6>
-                                    <p>Rp. {{ number_format( $pesandetail->total_harga+500,0,",",".") }}</p>
+                                    <h6>Biaya Admin</h6>
+                                    <p>Rp. 1.000</p>
+                                </li>
+                                <li>
+                                    <h6>Total<small></small></h6>
+                                    <p>Rp. {{ number_format( $pesandetail->total_harga+1000,0,",",".") }}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="account-card">
+                        <div class="account-title">
+                            <h4>Kirim Ke No Rekening</h4>
+                        </div>
+                        <div class="account-content">
+                            <ul class="invoice-details">
+                                <li>
+                                    <h6>No Rekening</h6>
+                                    <p>089763231214 - BSI</p>
                                 </li>
                             </ul>
                         </div>
@@ -126,12 +145,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center mt-5">
-                    <a class="btn btn-inline" href="#">
+                    {{-- <a class="btn btn-inline" href="#">
                         <i class="icofont-download"></i>
                         <span>download invoice</span>
-                    </a>
+                    </a> --}}
                     <div class="back-home">
-                        <a href="/">Back to Home</a>
+                        <a href="/">Kembali Ke Beranda</a>
                     </div>
                 </div>
             </div>

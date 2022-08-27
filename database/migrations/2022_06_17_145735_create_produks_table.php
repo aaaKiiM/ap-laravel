@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('nama_kue');
             $table->integer('harga');
             $table->string('keterangan');
-            $table->integer('stock');
+            $table->string('stock');
             $table->string('foto')->default('default.png');
             $table->integer('is_active')->default('1');
             $table->timestamps();

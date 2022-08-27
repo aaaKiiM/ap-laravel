@@ -19,7 +19,8 @@ class PembeliController extends Controller
 
     public function tampil()
     {
-        $produk = Produk::all();
+        $produk = Produk::where('is_active', 1)->get();
+        // dd($produk);
         $kategori = Kategori::all();
         return view('page.pembeli.index1', compact('produk','kategori'));
     }
@@ -46,6 +47,24 @@ class PembeliController extends Controller
         $total = Pesan::where('users_id', Auth::user()->id)->where('status',1)->count();
         // dd($pesandetail->pesandetail);
         return view('page.pembeli.riwayatpesan',compact('pesan','nomor','total','pesandetails'));
+    }
+
+    public function bukti(Request $request,$id)
+    {
+        $validasi = $request->validate(
+            [
+                'bukti' => 'required|file|mimes:png,jpg,jpeg|max:2048'
+            ]
+        );
+        $nama_file = $request->bukti->getClientOriginalName();
+        $upload3 = $request->bukti->move('bukti', $nama_file);
+
+        $pesan = Pesan::find($id);
+        // dd($pesan);
+        $pesan->bukti = $request->bukti->getClientOriginalName();
+        $pesan->save();
+
+        return redirect('/riwayatpesan');
     }
 
     // public function detail($id)

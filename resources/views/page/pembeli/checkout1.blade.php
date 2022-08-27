@@ -193,14 +193,14 @@
                                         <li>
                                             <span>delivery fee</span>
                                             <span>$10.00</span>
-                                        </li>
-                                        <li>
-                                            <span>discount</span>
-                                            <span>$00.00</span>
                                         </li> --}}
                                         <li>
+                                            <span>Biaya Admin</span>
+                                            <span>Rp. 1.000</span>
+                                        </li>
+                                        <li>
                                             <span>Total</span>
-                                            <span>Rp. {{ number_format( $pesan->total_harga,0,",",".") }}</span>
+                                            <span>Rp. {{ number_format( $pesan->total_harga+1000,0,",",".") }}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                     <div class="checkout-proced">
-                        <a href="/konfirmasi" class="btn btn-inline">Melakukan Pembayaran</a>
+                        <a href="/konfirmasi" class="btn btn-inline">Pesan</a>
                     </div>
                     {{-- <div class="col-lg-12">
                         <div class="account-card">
