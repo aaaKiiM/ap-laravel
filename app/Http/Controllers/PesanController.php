@@ -132,4 +132,31 @@ class PesanController extends Controller
         // dd($pesan);
         return view('page.penjual.pesan.index',compact('pesan','nomor'));
     }
+
+    public function diterima($id)
+    {
+        $pesan = Pesan::find($id);
+        $pesan->dibayar = 1;
+        $pesan->save();
+
+        return redirect('/admn/pesan');
+    }
+
+    public function ditolak($id)
+    {
+        $pesan = Pesan::find($id);
+        $pesan->dibayar = 2;
+        $pesan->save();
+
+        return redirect('/admn/pesan');
+    }
+
+    public function dikirim($id)
+    {
+        $pesan = Pesan::find($id);
+        $pesan->dikirim = 1;
+        $pesan->save();
+
+        return redirect('/pesan');
+    }
 }

@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [PembeliController::class, 'tampil'])->name('pembeli');
 Route::get('/pembeli/show/{ID}', [DetailController::class, 'detail']);
 Route::get('/kategori/{ID}', [PembeliController::class, 'kategori']);
+Route::get('/riwayatpesan', [PembeliController::class, 'riwayat']);
 
 //Route Dashboard Penjual Index
 Route::get('/penjual', [PenjualController::class, 'tampil'])->middleware('dafToko','confirmed');
@@ -39,6 +40,10 @@ Route::get('/penjual/form', [PenjualController::class, 'form'])->middleware('ver
 Route::post('/penjual/store', [PenjualController::class, 'store']);
 Route::get('/penjual/verifikasi', [PenjualController::class, 'verifikasi'])->middleware('check');
 Route::post('/penjual/validator/{ID}', [PenjualController::class, 'validasi'])->middleware('check');
+
+//Route Penjual
+Route::get('/pesan', [PesanController::class, 'tampilpesan'])->middleware('Batas');
+Route::put('/pesan/dikirim/{ID}', [PesanController::class, 'dikirim']);
 
 //Route Penjual Product
 Route::get('/produks', [ProdukController::class, 'tampil'])->middleware('Batas');
@@ -56,18 +61,19 @@ Route::get('/admn/produk', [AdminController::class, 'produk'])->middleware('verA
 Route::get('/admn/user', [AdminController::class, 'user'])->middleware('verAdmin');
 Route::get('/admn/pesan', [AdminController::class, 'pesan'])->middleware('verAdmin');
 
+//Route Admin Check Pesan
+Route::put('/admn/pesan/diterima/{ID}', [PesanController::class, 'diterima']);
+Route::put('/admn/pesan/ditolak/{ID}', [PesanController::class, 'ditolak']);
+
+
 //Route Kategori
 Route::get('/admn/kategori', [KategoriController::class, 'index'])->middleware('verAdmin');
 Route::post('/admn/kategori/store', [KategoriController::class, 'store'])->middleware('verAdmin');
-
-//Route Tambah Ke Keranjang
-Route::get('/tambah-ke-keranjang/{produkID}', [KeranjangController::class, 'tambah']);
 
 //Route Pesan
 Route::post('/pesan/{ID}', [PesanController::class, 'pesan']);
 Route::get('/checkout', [PesanController::class, 'checkout']);
 Route::get('/konfirmasi', [PesanController::class, 'konfirmasi']);
-Route::get('/pesan', [PesanController::class, 'tampilpesan'])->middleware('Batas');
 Route::get('/struk/{ID}', [PesanController::class, 'struk']);
 
 //Route Mengirim Email

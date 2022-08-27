@@ -47,6 +47,7 @@
         <link rel="stylesheet" href="{{ asset('new template/css/checkout.css') }}">
         <link rel="stylesheet" href="{{ asset('new template/css/product-details.css') }}">
         <link rel="stylesheet" href="{{ asset('new template/css/invoice.css') }}">
+        <link rel="stylesheet" href="{{ asset('new template/css/orderlist.css') }}">
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
@@ -138,10 +139,18 @@
                             <span>Login</span>
                         </a>
                     @else
-                        <a href="/login" class="header-widget" title="My Account">
-                            <img src="{{ asset('new template/images/user.png') }}" alt="user">
-                            <span>{{auth()->user()->nama}}</span>
-                        </a>
+                        <ul class="navbar-list">
+                            <li class="navbar-item dropdown">
+                                <a href="/profile" class="header-widget" title="My Account">
+                                    <img src="{{ asset('new template/images/user.png') }}" alt="user">
+                                    <span>{{auth()->user()->nama}}</span>
+                                </a>
+                                <ul class="dropdown-position-list">
+                                    <li><a href="/profile">Profile Akun</a></li>
+                                    <li><a href="/riwayatpesan">Riwayat Pesanan</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     @endguest
 
                     <form class="header-form">

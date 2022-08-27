@@ -41,31 +41,71 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">Nomor</th>
+                                            <th class="text-center">No</th>
                                             <th class="text-center">Username</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">No Faktur</th>
                                             <th class="text-center">Tanggal</th>
-                                            <th class="text-center">Total Harga</th>
-                                            <th class="text-center">Action</th>
+                                            {{-- <th class="text-center">Total Harga</th> --}}
+                                            <th class="text-center">Pembayaran</th>
+                                            <th class="text-center">Pengiriman</th>
+                                            {{-- <th class="text-center">Action</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ( $pesan as $isi)
                                             <tr>
                                                 <td class="text-center">{{ $nomor++ }}</td>
-                                                <td class="text-center">{{ $isi->pesan->nama }}</td>
+                                                <td class="text-center">{{ $isi->pesan->username }}</td>
                                                 <td class="text-center">
                                                     @if ($isi->status == 1)
-                                                        <span class="badge1 bg-success">Sudah Di Bayar</span>
+                                                        <span class="badge1 bg-success"><i class="fa-solid fa-circle-check"></i> Sudah Di Pesan</span>
                                                     @else
-                                                        <span class="badge1 bg-danger">Belum Di Bayar</span>
+                                                        <span class="badge1 bg-danger"><i class="fa-solid fa-circle-xmark"></i> Belum Di Pesan</span>
                                                     @endif
                                                 </td>
                                                 <td class="text-center">{{ $isi->no_faktur }}</td>
                                                 <td class="text-center">{{ $isi->tanggal }}</td>
-                                                <td class="text-center">Rp. {{ number_format( $isi->total_harga,0,",",".") }}</td>
+                                                {{-- <td class="text-center">Rp. {{ number_format( $isi->total_harga,0,",",".") }}</td> --}}
                                                 <td class="text-center">
+                                                    @if ($isi->dibayar == 0)
+                                                        <div class="form-rapi">
+                                                            <form action="/admn/pesan/diterima/{{ $isi->id }}" method="post">
+                                                                @csrf
+                                                                @method("PUT")
+                                                                <button type="submit" class="btn btn-outline-success badge1 btn-sm"><i class="fa-solid fa-circle-check"></i> Diterima</button>
+                                                                {{-- <button type="submit" class="btn btn-group-sm btn-primary btn-sm">Masuk</button> --}}
+                                                            </form>
+                                                            <form action="/admn/pesan/ditolak/{{ $isi->id }}" method="post">
+                                                                @csrf
+                                                                @method("PUT")
+                                                                <button type="submit" class="btn btn-outline-danger badge1 btn-sm"><i class="fa-solid fa-circle-xmark"></i> Tidak</button>
+                                                                {{-- <button type="submit" class="btn btn-group-sm btn-success btn-sm">Tidak</button> --}}
+                                                            </form>
+                                                        </div>
+                                                    @elseif ($isi->dibayar == 1)
+                                                        <span class="badge1 bg-success"><i class="fa-solid fa-circle-check"></i> Saldo Diterima</span>
+                                                    @elseif ($isi->dibayar == 2)
+                                                        <div class="form-rapi">
+                                                            <form action="/admn/pesan/diterima/{{ $isi->id }}" method="post">
+                                                                @csrf
+                                                                @method("PUT")
+                                                                {{-- <button type="button" class="btn btn-outline-danger btn-block btn-sm"><i class="fa fa-bell"></i> .btn-block</button> --}}
+
+                                                                <button type="submit" class="btn btn-outline-success badge1 btn-sm"><i class="fa-solid fa-circle-check"></i> Diterima</button>
+                                                            </form>
+                                                            <span class="badge1 bg-danger"><i class="fa-solid fa-circle-xmark"></i> Belum Diterima</span>
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">
+                                                    @if ($isi->dikirim == 1)
+                                                        <span class="badge1 bg-success">Sedang Dikirim</span>
+                                                    @else
+                                                        <span class="badge1 bg-danger">Belum Dikirim</span>
+                                                    @endif
+                                                </td>
+                                                {{-- <td class="text-center">
                                                     <a href="/toko/edit/{{$isi->id}}" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default1{{ $isi->id }}">Hapus</a>
                                                     <div class="modal fade" id="modal-default1{{ $isi->id }}">
@@ -94,7 +134,7 @@
                                                         </div>
                                                         <!-- /.modal-dialog -->
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @empty
 

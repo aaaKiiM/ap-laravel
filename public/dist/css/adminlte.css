@@ -5196,10 +5196,20 @@ input[type="button"].btn-block {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.form-rapi form,
+.form-rapi form div {
+    display: inline;
+}
+
+.form-rapi button {
+    display: inline;
+    vertical-align: middle;
+}
+
 .badge1 {
     display: inline-block;
-    padding: 7px;
-    font-size: 70%;
+    padding: 9px;
+    font-size: 80%;
     font-weight: 700;
     line-height: 1;
     text-align: center;

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\Pesan;
+use App\Models\PesanDetail;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use Illuminate\Support\Facades\Auth;
 
 class PembeliController extends Controller
 {
@@ -28,6 +31,21 @@ class PembeliController extends Controller
         $produk = Produk::where('kategoris_id',$id)->get();
         // dd($produk);
         return view('page.pembeli.kategori', compact('produk','kategori'));
+    }
+
+    public function riwayat()
+    {
+        $nomor = 1;
+        $pesandetails = Auth::user();
+        // $pesandetail = PesanDetail::where('users_id', Auth::user()->id)->get('jumlah');
+        // $pesandetail1 = $pesandetail->id;
+        // $pesandetail = PesanDetail::find('users_id', Auth::user()->id);
+
+        $pesan = Auth::user();
+        // $pesan = Pesan::where('users_id', Auth::user()->id)->where('status',1)->first();
+        $total = Pesan::where('users_id', Auth::user()->id)->where('status',1)->count();
+        // dd($pesandetail->pesandetail);
+        return view('page.pembeli.riwayatpesan',compact('pesan','nomor','total','pesandetails'));
     }
 
     // public function detail($id)

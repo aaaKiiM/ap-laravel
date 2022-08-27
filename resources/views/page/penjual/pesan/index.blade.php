@@ -44,22 +44,47 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">Nomor</th>
+                                            <th class="text-center">Username</th>
                                             <th class="text-center">No Faktur</th>
                                             <th class="text-center">Tanggal</th>
-                                            <th class="text-center">Action</th>
+                                            <th class="text-center">Status Pemesanan</th>
+                                            <th class="text-center">Status Pembayaran</th>
+                                            <th class="text-center">Status Pengiriman</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ( $pesan as $isi )
                                         <tr>
                                             <td class="text-center">{{ $nomor++ }}</td>
+                                            <td class="text-center">{{ $isi->pesan->username }}</td>
                                             <td class="text-center">{{ $isi->no_faktur }}</td>
                                             <td class="text-center">{{ $isi->tanggal }}</td>
                                             <td class="text-center">
                                                 @if ($isi->status == 1)
-                                                    <span class="badge1 bg-success">Sudah Di Bayar</span>
+                                                    <span class="badge1 bg-success">Sudah Dipesan</span>
                                                 @else
-                                                    <span class="badge1 bg-danger">Belum Dibayar</span>
+                                                    <span class="badge1 bg-danger">Belum Dipesan</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-center">
+                                                @if ($isi->dibayar == 0)
+                                                    <span class="badge1 bg-danger"><i class="fa-solid fa-circle-xmark"></i> Belum Dibayar</span>
+                                                @elseif ($isi->dibayar == 1)
+                                                    <span class="badge1 bg-success"><i class="fa-solid fa-circle-check"></i> Sudah Dibayar</span>
+                                                @elseif ($isi->dibayar == 2)
+                                                    <span class="badge1 bg-danger"><i class="fa-solid fa-circle-xmark"></i> Belum Dibayar</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-center">
+                                                @if ($isi->dikirim == 0)
+                                                    <form action="/pesan/dikirim/{{ $isi->id }}" method="post">
+                                                        @csrf
+                                                        @method("PUT")
+                                                        <button type="submit" class="btn btn-outline-success badge1 btn-sm"><i class="fa-solid fa-square-arrow-up-right"></i> Kirim</button>
+                                                        {{-- <button type="submit" class="btn btn-group-sm btn-primary btn-sm">Masuk</button> --}}
+                                                    </form>
+                                                @elseif ($isi->dikirim == 1)
+                                                    <span class="badge1 bg-success"><i class="fa-solid fa-circle-check"></i> Dikirim</span>
                                                 @endif
                                             </td>
                                             {{-- <td class="text-center">
