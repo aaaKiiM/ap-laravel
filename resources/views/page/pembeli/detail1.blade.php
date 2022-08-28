@@ -88,12 +88,12 @@
                             <span>Rp. {{ number_format( $produk->harga,0,",",".") }}</span>
                         </h3>
                         <p class="details-desc">{{ $produk->keterangan}}</p>
-                        {{-- <div class="details-list-group">
+                        <div class="details-list-group">
                             <label class="details-list-title">Kategori :</label>
                             <ul class="details-tag-list">
-                                <li><a href="#">{{ $produk->kategoris->kategori }}</a></li>
+                                <li><a href="/kategori/{{ $produk->kategoris->id }}">{{ $produk->kategoris->kategori }}</a></li>
                             </ul>
-                        </div> --}}
+                        </div>
                         <div class="details-list-group">
                             {{-- <label class="details-list-title">Share:</label>
                             <ul class="details-share-list">
@@ -113,8 +113,7 @@
                             <div class="product-action">
                                     <input type="hidden" name="toko" value="{{ $produk->toko->users_id }}">
                                     <button type="button" class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
-                                    <input class="action-input" title="Quantity Number" type="text" name="qty"
-                                        value="1">
+                                    <input class="action-input" title="Quantity Number" type="text" name="qty" value="1">
                                     <button type="button" class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
                                 </div>
                             </div>

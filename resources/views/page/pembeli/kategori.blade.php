@@ -4,7 +4,7 @@
     <!--=====================================
                         PRODUCT VIEW START
             =======================================-->
-    <div class="modal fade" id="product-view">
+    {{-- <div class="modal fade" id="product-view">
         <div class="modal-dialog">
             <div class="modal-content">
                 <button class="modal-close icofont-close" data-bs-dismiss="modal"></button>
@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--=====================================
                         PRODUCT VIEW END
             =======================================-->
@@ -219,8 +219,7 @@
                                 <div class="product-widget">
                                     <!-- <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
                                             <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a> -->
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal"
-                                        data-bs-target="#product-view"></a>
+                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view{{ $isi->id }}"></a>
                                 </div>
                             </div>
                             <div class="product-content">
@@ -255,6 +254,108 @@
                                         value="1">
                                     <button class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
                                 </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="product-view{{ $isi->id }}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <button class="modal-close icofont-close" data-bs-dismiss="modal"></button>
+                                <div class="product-view">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="view-gallery">
+                                                {{-- <div class="view-label-group">
+                                                    <label class="view-label new">new</label>
+                                                    <label class="view-label off">-10%</label>
+                                                </div> --}}
+                                                <ul class="preview-slider slider-arrow">
+                                                    <li><img src="{{ asset('produk/'.$isi->foto) }}" alt="product"></li>
+                                                    {{-- <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li> --}}
+                                                </ul>
+                                                <ul class="thumb-slider">
+                                                    {{-- <li><img src="{{ asset('produk/'.$isi->foto) }}" alt="product"></li> --}}
+                                                    {{-- <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li>
+                                                    <li><img src="images/product/01.jpg" alt="product"></li> --}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="view-details">
+                                                <h3 class="view-name">
+                                                    <a href="/pembeli/show/{{$isi->id}}">{{ $isi->nama_kue }}</a>
+                                                </h3>
+                                                <div class="view-meta">
+                                                    <p>Stock :<span>{{ $isi->stock}}</span></p>
+                                                    <p>Toko :<a href="#">{{ $isi->toko->nama_toko}}</a>
+                                                </div>
+                                                {{-- <div class="view-rating">
+                                                    <i class="active icofont-star"></i>
+                                                    <i class="active icofont-star"></i>
+                                                    <i class="active icofont-star"></i>
+                                                    <i class="active icofont-star"></i>
+                                                    <i class="icofont-star"></i>
+                                                    <a href="product-video.html">(3 reviews)</a>
+                                                </div> --}}
+                                                <h3 class="view-price">
+                                                    <span>Rp. {{ number_format( $isi->harga,0,",",".") }}</span>
+                                                </h3>
+                                                <p class="view-desc">{{ $isi->keterangan }}</p>
+                                                <div class="view-list-group">
+                                                    <label class="view-list-title">Kategori :</label>
+                                                    <ul class="view-tag-list">
+                                                        <li><a href="/kategori/{{ $isi->kategoris->id }}">{{ $isi->kategoris->kategori }}</a></li>
+                                                    </ul>
+                                                </div>
+                                                {{-- <div class="view-list-group">
+                                                    <label class="view-list-title">Share:</label>
+                                                    <ul class="view-share-list">
+                                                        <li><a href="#" class="icofont-facebook" title="Facebook"></a></li>
+                                                        <li><a href="#" class="icofont-twitter" title="Twitter"></a></li>
+                                                        <li><a href="#" class="icofont-linkedin" title="Linkedin"></a></li>
+                                                        <li><a href="#" class="icofont-instagram" title="Instagram"></a></li>
+                                                    </ul>
+                                                </div> --}}
+                                                <form action="/pesan/{{ $isi->id }}" method="POST">
+                                                    @csrf
+                                                    <div class="view-add-group">
+                                                        <button type="button" class="product-add" title="Add to Cart">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                            <span>Jumlah</span>
+                                                        </button>
+                                                        <div class="product-action">
+                                                            <input type="hidden" name="toko" value="{{ $isi->toko->users_id }}">
+                                                            <button type="button" class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
+                                                            <input class="action-input" title="Quantity Number" type="text" name="qty" value="1">
+                                                            <button type="button" class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="view-action-group-button">
+                                                        <button type="submit" class="view-compare" title="Add Your Wishlist">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                            <span>Tambah Ke Keranjang</span>
+                                                        </button>
+                                                        {{-- <a class="view-compare" href="compare.html" title="Compare This Item">
+                                                            <i class="fas fa-random"></i>
+                                                            <span>Compare This</span>
+                                                        </a> --}}
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

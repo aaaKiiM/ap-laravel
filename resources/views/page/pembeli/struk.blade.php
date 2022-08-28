@@ -41,7 +41,7 @@
                             <div class="invoice-recieved">
                                 <h6>No Faktur <span>{{ $pesandetail->pesan->no_faktur }}</span></h6>
                                 <h6>Tanggal Pesan <span>{{ $pesandetail->pesan->tanggal }}</span></h6>
-                                <h6>Total Harga <span>Rp. {{ number_format( $pesandetail->total_harga,0,",",".") }}</span></h6>
+                                <h6>Total Harga <span>Rp. {{ number_format( $pesandetail->pesan->total_harga,0,",",".") }}</span></h6>
                                 <h6>Metode Pembayaran <span>Transfer</span></h6>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                                 </li>
                                 <li>
                                     <h6>Total<small></small></h6>
-                                    <p>Rp. {{ number_format( $pesandetail->total_harga+1000,0,",",".") }}</p>
+                                    <p>Rp. {{ number_format( $pesandetail->pesan->total_harga+1000,0,",",".") }}</p>
                                 </li>
                             </ul>
                         </div>
@@ -145,13 +145,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center mt-5">
-                    {{-- <a class="btn btn-inline" href="#">
+                    <a class="btn btn-inline" href="/">
                         <i class="icofont-download"></i>
-                        <span>download invoice</span>
-                    </a> --}}
-                    <div class="back-home">
+                        <span>Kembali Ke Beranda</span>
+                    </a>
+                    {{-- <div class="back-home">
                         <a href="/">Kembali Ke Beranda</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

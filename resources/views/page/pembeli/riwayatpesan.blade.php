@@ -172,7 +172,7 @@
                                                             </div> -->
                                                             <div class="form-group">
                                                                 <label class="form-label">Foto</label>
-                                                                <input class="form-control @error ('foto') is-invalid @enderror" type="file" name="bukti">
+                                                                <input class="form-control @error ('bukti') is-invalid @enderror" type="file" name="bukti">
                                                                 @error('bukti')
                                                                     <div class="text-danger">{{$message}}</div>
                                                                 @enderror

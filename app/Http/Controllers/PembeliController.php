@@ -7,6 +7,7 @@ use App\Models\Pesan;
 use App\Models\PesanDetail;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class PembeliController extends Controller
@@ -67,6 +68,29 @@ class PembeliController extends Controller
         return redirect('/riwayatpesan');
     }
 
+    public function profile()
+    {
+        return view('page.pembeli.profile');
+    }
+
+    public function profileupdate(Request $request, $id)
+    {
+        $validasi = $request->validate(
+            [
+                'foto' => 'required|file|mimes:png,jpg,jpeg|max:2048'
+            ]
+        );
+        $nama_file = $request->foto->getClientOriginalName();
+        $upload3 = $request->foto->move('user', $nama_file);
+        $user = User::find($id);
+
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->foto = $request->foto->getClientOriginalName();
+        $user->save();
+
+        return redirect('/profile');
+    }
     // public function detail($id)
     // {
     //     $produk = Produk::find($id);

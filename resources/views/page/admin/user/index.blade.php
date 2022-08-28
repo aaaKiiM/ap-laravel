@@ -46,7 +46,7 @@
                                             <th class="text-center">Nama</th>
                                             <th class="text-center">No HP</th>
                                             <th class="text-center">Alamat</th>
-                                            <th class="text-center">Action</th>
+                                            {{-- <th class="text-center">Action</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,9 +58,9 @@
                                             <td class="text-center">{{ $isi->nama }}</td>
                                             <td class="text-center">{{ $isi->no_hp }}</td>
                                             <td class="text-center">{{ $isi->alamat }}</td>
-                                            <td class="text-center">
+                                            {{-- <td class="text-center">
                                                 <a href="/produk/edit/{{$isi->id}}" class="btn btn-primary btn-sm">Edit</a>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                         @empty
 

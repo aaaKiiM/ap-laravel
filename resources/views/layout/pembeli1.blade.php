@@ -48,6 +48,7 @@
         <link rel="stylesheet" href="{{ asset('new template/css/product-details.css') }}">
         <link rel="stylesheet" href="{{ asset('new template/css/invoice.css') }}">
         <link rel="stylesheet" href="{{ asset('new template/css/orderlist.css') }}">
+        <link rel="stylesheet" href="{{ asset('new template/css/profile.css') }}">
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
@@ -125,7 +126,7 @@
             <div class="container">
                 <div class="header-content">
                     <div class="header-media-group">
-                        <button class="header-user"><img src="images/user.png" alt="user"></button>
+                        <button class="header-user"><img src="{{ asset('user/default.png') }}" alt="user"></button>
                         <a href="/"><img src="{{ asset('new template/images/logo.png') }}" alt="logo"></a>
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
@@ -134,15 +135,15 @@
                         <img src="{{ asset('img/Logo.png') }}" alt="logo">
                     </a>
                     @guest
-                        <a href="/login" class="header-widget" title="My Account">
-                            <img src="{{ asset('new template/images/user.png') }}" alt="user">
+                        <a href="/login" class="header-widget">
+                            <img src="{{ asset('user/default.png') }}" alt="user">
                             <span>Login</span>
                         </a>
                     @else
                         <ul class="navbar-list">
                             <li class="navbar-item dropdown">
-                                <a href="/profile" class="header-widget" title="My Account">
-                                    <img src="{{ asset('new template/images/user.png') }}" alt="user">
+                                <a href="/profile" class="header-widget">
+                                    <img src="{{ asset('user/'.auth()->user()->foto) }}" alt="user">
                                     <span>{{auth()->user()->nama}}</span>
                                 </a>
                                 <ul class="dropdown-position-list">
@@ -907,14 +908,10 @@
                     MOBILE-MENU PART START
         =======================================-->
         <div class="mobile-menu">
-            <a href="index.html" title="Home Page">
+            <a href="/" title="Home Page">
                 <i class="fas fa-home"></i>
-                <span>Home</span>
+                <span>Beranda</span>
             </a>
-            <button class="cate-btn" title="Category List">
-                <i class="fas fa-list"></i>
-                <span>category</span>
-            </button>
             <button class="cart-btn" title="Cartlist">
                 <i class="fas fa-shopping-basket"></i>
                 <span>cartlist</span>
