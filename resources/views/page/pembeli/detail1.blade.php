@@ -6,11 +6,11 @@
             =======================================-->
     <section class="single-banner inner-section" style="background: url(images/single-banner.jpg) no-repeat center;">
         <div class="container">
-            <h2>product tab</h2>
+            <h2>Detail Produk {{ $produk->nama_kue }}</h2>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                {{-- <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="shop-4column.html">shop-4column</a></li>
-                <li class="breadcrumb-item active" aria-current="page">product-tab</li>
+                <li class="breadcrumb-item active" aria-current="page">product-tab</li> --}}
             </ol>
         </div>
     </section>

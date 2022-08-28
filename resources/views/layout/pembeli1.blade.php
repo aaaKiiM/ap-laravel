@@ -28,7 +28,7 @@
                     CSS LINK PART START
         =======================================-->
         <!-- FAVICON -->
-        <link rel="icon" href="images/favicon.png">
+        <link rel="icon" href="{{ asset('img/icon.png') }}">
 
         <!-- FONTS -->
         <link rel="stylesheet" href="{{ asset('new template/fonts/flaticon/flaticon.css') }}">
@@ -132,7 +132,7 @@
                     </div>
 
                     <a href="/" class="header-logo">
-                        <img src="{{ asset('img/Logo.png') }}" alt="logo">
+                        <img src="{{ asset('img/logo1.png') }}" alt="logo">
                     </a>
                     @guest
                         <a href="/login" class="header-widget">
@@ -1001,7 +1001,7 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
                             <a class="footer-logo" href="#">
-                                <img src="images/logo.png" alt="logo">
+                                <img src="{{ asset('img/logo1.png') }}" alt="logo">
                             </a>
                             <p class="footer-desc">Adipisci asperiores ipsum ipsa repellat consequatur repudiandae quisquam assumenda dolor perspiciatis sit ipsum dolor amet.</p>
                             <ul class="footer-social">
@@ -1020,20 +1020,20 @@
                                 <li>
                                     <i class="icofont-ui-email"></i>
                                     <p>
-                                        <span>support@greeny.com</span>
-                                        <span>carrer@greeny.com</span>
+                                        <span>emperorcake@cake.id</span>
+                                        {{-- <span>carrer@greeny.com</span> --}}
                                     </p>
                                 </li>
                                 <li>
                                     <i class="icofont-ui-touch-phone"></i>
                                     <p>
                                         <span>+120 279 532 13</span>
-                                        <span>+120 279 532 14</span>
+                                        {{-- <span>+120 279 532 14</span> --}}
                                     </p>
                                 </li>
                                 <li>
                                     <i class="icofont-location-pin"></i>
-                                    <p>1Hd- 50, 010 Avenue, NY 90001 United States</p>
+                                    <p>Banda Aceh</p>
                                 </li>
                             </ul>
                         </div>
@@ -1075,10 +1075,10 @@
                         <div class="footer-bottom">
                             <p class="footer-copytext">&copy;  All Copyrights Reserved by <a target="_blank" href="https://themeforest.net/user/mironcoder">Mironcoder</a></p>
                             <div class="footer-card">
-                                <a href="#"><img src="images/payment/jpg/01.jpg" alt="payment"></a>
+                                {{-- <a href="#"><img src="images/payment/jpg/01.jpg" alt="payment"></a>
                                 <a href="#"><img src="images/payment/jpg/02.jpg" alt="payment"></a>
                                 <a href="#"><img src="images/payment/jpg/03.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/04.jpg" alt="payment"></a>
+                                <a href="#"><img src="images/payment/jpg/04.jpg" alt="payment"></a> --}}
                             </div>
                         </div>
                     </div>

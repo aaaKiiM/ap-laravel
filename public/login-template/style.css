@@ -1501,7 +1501,7 @@ ul {
   border: 0;
   color: #fff;
   border-radius: 3px;
-  background-color: #5a8dee;
+  background-color: #971111;
   padding: 10px 36px;
   margin-bottom: 10px;
   width: 100%;
@@ -1510,8 +1510,8 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 .fxt-template-layout3 .fxt-btn-fill:hover {
-  background-color: #4b7cda;
-  border-color: #4b7cda;
+  background-color: #971111;
+  border-color: #971111;
 }
 .fxt-template-layout3 .fxt-btn-fill:focus {
   outline: none;
@@ -2925,7 +2925,7 @@ ul {
   border: 0;
   color: #fff;
   border-radius: 3px;
-  background-color: #2e4bf1;
+  background-color: #971111;
   padding: 10px 36px;
   margin-bottom: 10px;
   width: 100%;
@@ -2934,14 +2934,14 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 .fxt-template-layout7 .fxt-btn-fill:hover {
-  background-color: #4b7cda;
-  border-color: #4b7cda;
+  background-color: #b71111;
+  border-color: #b71111;
 }
 .fxt-template-layout7 .fxt-btn-fill:focus {
   outline: none;
 }
 .fxt-template-layout7 .switcher-text {
-  color: #63bbff;
+  color: #971111;
   font-size: 15px;
   margin-bottom: 5px;
   display: block;
@@ -2953,7 +2953,7 @@ ul {
   color: #000000;
 }
 .fxt-template-layout7 .switcher-text2 {
-  color: #63bbff;
+  color: #971111;
   font-size: 15px;
   display: inline-block;
   -webkit-transition: all 0.3s ease-in-out;

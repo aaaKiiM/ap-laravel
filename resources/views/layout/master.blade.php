@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
+    <link rel="icon" href="{{ asset('img/icon.png') }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -186,9 +187,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-                <img src="{{ asset('img/Logo.png') }}" alt="Emperor Cake"
-                    class="brand-image  elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Admin Emperor Cake</span>
+                <img src="{{ asset('img/logo-admin.png') }}" alt="Emperor Cake" class="brand-image-xl" >
+                {{-- <span class="brand-text font-weight-light">Admin Emperor Cake</span> --}}
             </a>
 
             <!-- Sidebar -->

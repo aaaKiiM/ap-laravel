@@ -3,10 +3,10 @@
 @section('content')
 <section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
     <div class="container">
-        <h2>my profile</h2>
+        <h2>Profile Saya</h2>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">profile</li>
+            {{-- <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">profile</li> --}}
         </ol>
     </div>
 </section>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
+            {{-- <div class="col-lg-12">
                 <div class="account-card">
                     <div class="account-title">
                         <h4>contact number</h4>
@@ -214,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

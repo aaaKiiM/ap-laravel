@@ -712,7 +712,7 @@
                     </div>
                 </div> --}}
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12">
                     <div class="section-btn-25">
                         <a href="shop-4column.html" class="btn btn-outline">
@@ -721,7 +721,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <!--=====================================

@@ -4,11 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Login and Register</title>
+	<title>Login</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('login-template/img/favicon.png') }}">
+	{{-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('login-template/img/favicon.png') }}"> --}}
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{ asset('login-template/css/bootstrap.min.css') }}">
 	<!-- Fontawesome CSS -->
@@ -38,8 +39,7 @@
 				<div class="col-xl-6 col-lg-7 col-sm-12 col-12 fxt-bg-color">
 					<div class="fxt-content">
 						<div class="fxt-header">
-							<a href="/" class="fxt-logo"><img src="{{ asset('img/Logo.png') }}" alt="Logo"></a>
-							<p>Login</p>
+							<a href="/" class="fxt-logo"><img src="{{ asset('img/logo2.png') }}" alt="Logo"></a>
 						</div>
 						<div class="fxt-form">
 							<form method="POST" action="{{ route('login') }}">
