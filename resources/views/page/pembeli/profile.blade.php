@@ -22,7 +22,10 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Foto Profile</label>
-                    <input class="form-control" type="file" name="foto">
+                    <input class="form-control @error ('foto') is-invalid @enderror" type="file" name="foto">
+                    {{-- @error('foto')
+                        <div class="text-danger">{{$message}}</div>
+                    @enderror --}}
                 </div>
                 <div class="form-group">
                     <label class="form-label">Nama</label>
@@ -30,10 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input class="form-control @error ('foto') is-invalid @enderror" name="email" type="email" value="{{ auth()->user()->email }}">
-                    @error('foto')
-                        <div class="text-danger">{{$message}}</div>
-                    @enderror
+                    <input class="form-control" name="email" type="email" value="{{ auth()->user()->email }}">
                 </div>
                 <button class="form-btn" type="submit">Simpan Profil</button>
             </form>
