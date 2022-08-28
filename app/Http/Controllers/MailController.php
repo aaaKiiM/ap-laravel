@@ -27,7 +27,7 @@ class MailController extends Controller
 
         Mail::to($email)->send(new TokenMail($mailInfo));
 
-        return redirect('/admn/toko');
+        return redirect('/admn/toko')->withToastSuccess('Berhasil');
         // return response()->json([
         //     'message' => 'Mail has sent.'
         // ], Response::HTTP_OK);

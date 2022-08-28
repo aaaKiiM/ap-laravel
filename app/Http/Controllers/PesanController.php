@@ -157,8 +157,8 @@ class PesanController extends Controller
         $pesan->dikirim = 1;
         $pesan->save();
 
-        return redirect('/penjual/pesan');
+        return redirect('/penjual/pesan')->withToastSuccess('Status Pengiriman Berhasil Diubaha');
     }
 
-    
+
 }

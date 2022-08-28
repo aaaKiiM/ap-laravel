@@ -47,7 +47,7 @@
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-1">
                                         <label>Username</label>
-                                        <input id="username" type="text" placeholder="Username Kamu" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
+                                        <input id="username" type="text" placeholder="Username Kamu" class="form-control @error('username') @enderror" name="username" value="{{ old('username') }}" required autofocus>
                                         @error('username')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
                                         <label>Password</label>
-                                        <input id="password" type="password" placeholder="Password Kamu" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        <input id="password" type="password" placeholder="Password Kamu" class="form-control @error('password') @enderror" name="password" required autocomplete="current-password">
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -107,7 +107,7 @@
 	<script src="{{ asset('login-template/js/validator.min.js') }}"></script>
 	<!-- Custom Js -->
 	<script src="{{ asset('login-template/js/main.js') }}"></script>
-
+    @include('sweetalert::alert')
 </body>
 
 </html>

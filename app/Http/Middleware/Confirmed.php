@@ -19,7 +19,7 @@ class Confirmed
         if(auth()->user()->is_penjual == 1 && auth()->user()->toko->confirmed == 1){
             return $next($request);
         }elseif (auth()->user()->toko->confirmed == 0){
-            return redirect('/penjual/verifikasi');
+            return redirect('/penjual/verifikasi')->withToastSuccess('Token Salah');
         }else{
             return $next($request);
         }

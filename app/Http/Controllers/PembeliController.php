@@ -62,7 +62,12 @@ class PembeliController extends Controller
     {
         $validasi = $request->validate(
             [
-                'bukti' => 'required|file|mimes:png,jpg,jpeg|max:2048'
+                'bukti' => 'required|file|mimes:png,jpg,jpeg|max:5048'
+            ],
+            [
+                'bukti.max' => 'Ukuran Bukti Pembayaran Tidak Boleh Lebih Dari 5MB!',
+                'bukti.required' => 'Harus Dipilih Foto Sebelum Ubah Profile',
+                'bukti.mimes' => 'Fotonya Harus Berformat PNG, JPG, Dan JPEG Ya',
             ]
         );
         $nama_file = $request->bukti->getClientOriginalName();
@@ -73,7 +78,7 @@ class PembeliController extends Controller
         $pesan->bukti = $request->bukti->getClientOriginalName();
         $pesan->save();
 
-        return redirect('/riwayatpesan');
+        return redirect('/riwayatpesan')->withToastSuccess('Upload Bukti Berhasil');
     }
 
     public function profile()
@@ -85,10 +90,10 @@ class PembeliController extends Controller
     {
         $validasi = $request->validate(
             [
-                'foto' => 'required|file|mimes:png,jpg,jpeg|max:2048'
+                'foto' => 'required|file|mimes:png,jpg,jpeg|max:5048'
             ],
             [
-                'foto.max' => 'Ukuran Foto Tidak Boleh Lebih Dari 2MB!',
+                'foto.max' => 'Ukuran Foto Tidak Boleh Lebih Dari 5MB!',
                 'foto.required' => 'Harus Dipilih Foto Sebelum Ubah Profile',
                 'foto.mimes' => 'Fotonya Harus Berformat PNG, JPG, Dan JPEG Ya',
             ]

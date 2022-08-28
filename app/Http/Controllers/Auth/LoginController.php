@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -49,9 +50,20 @@ class LoginController extends Controller
         $input = $request->all();
 
         $this->validate($request, [
-            'username' => 'required',
+            'username' => 'required|exists:users,username',
             'password' => 'required',
-        ]);
+            ],
+            [
+                'username.exists' => 'Username Salah Dan Password Salah',
+                // 'password.exists' => 'Password Salah',
+            ]
+        );
+
+        // if (! Hash::check($request->password, $request->user()->password)) {
+        //     return back()->withErrors([
+        //         'password' => ['The provided password does not match our records.']
+        //     ]);
+        // }
 
         if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
         {
@@ -59,11 +71,10 @@ class LoginController extends Controller
                 return redirect()->route('admin');
             }
             else{
-                return redirect()->route('pembeli');
+                return redirect()->route('pembeli')->withToastSuccess('Login Berhasil');
             }
         }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+            return redirect()->route('login');
         }
 
     }
