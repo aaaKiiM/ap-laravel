@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PembeliController extends Controller
 {
@@ -18,11 +19,18 @@ class PembeliController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    // public function post()
+    // {
+    //     return redirect('/')->withToastSuccess('Task Created Successfully!');
+    // }
+
     public function tampil()
     {
         $produk = Produk::where('is_active', 1)->get();
         // dd($produk);
         $kategori = Kategori::all();
+        // Alert::success('Success Title', 'Success Message');
+        // Alert::toast('Task Created Successfully!', 'success');
         return view('page.pembeli.index1', compact('produk','kategori'));
     }
 
@@ -78,8 +86,14 @@ class PembeliController extends Controller
         $validasi = $request->validate(
             [
                 'foto' => 'required|file|mimes:png,jpg,jpeg|max:2048'
+            ],
+            [
+                'foto.max' => 'Ukuran Foto Tidak Boleh Lebih Dari 2MB!',
+                'foto.required' => 'Harus Dipilih Foto Sebelum Ubah Profile',
+                'foto.mimes' => 'Fotonya Harus Berformat PNG, JPG, Dan JPEG Ya',
             ]
         );
+
         $nama_file = $request->foto->getClientOriginalName();
         $upload3 = $request->foto->move('user', $nama_file);
         $user = User::find($id);
@@ -89,7 +103,7 @@ class PembeliController extends Controller
         $user->foto = $request->foto->getClientOriginalName();
         $user->save();
 
-        return redirect('/profile');
+        return redirect('/profile')->withToastSuccess('Ubah Profile Berhasil');
     }
     // public function detail($id)
     // {
