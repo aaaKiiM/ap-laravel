@@ -36,7 +36,6 @@ Route::get('/riwayatpesan', [PembeliController::class, 'riwayat']);
 Route::put('/pembeli/bukti/{ID}', [PembeliController::class, 'bukti']);
 Route::get('/profile', [PembeliController::class, 'profile']);
 Route::put('/profile/update/{ID}', [PembeliController::class, 'profileupdate']);
-Route::post('/post', [PembeliController::class, 'post']);
 
 //Route Dashboard Penjual Index
 Route::get('/penjual', [PenjualController::class, 'tampil'])->middleware('dafToko','confirmed');

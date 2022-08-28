@@ -715,13 +715,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-btn-25">
-                        <form action="/post" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-outline">
-                                <i class="fas fa-eye"></i>
-                                <span>show more</span>
-                            </button>
-                        </form>
+                        <a href="shop-4column.html" class="btn btn-outline">
+                            <i class="fas fa-eye"></i>
+                            <span>show more</span>
+                        </a>
                     </div>
                 </div>
             </div>
