@@ -13,7 +13,7 @@
                     <div class="col-sm-3">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">DataTables</li>
+                            <li class="breadcrumb-item active">Produk</li>
                         </ol>
                     </div>
                 </div>
@@ -101,6 +101,7 @@
                                                                         <p>Harga        : Rp. {{ $isi->harga}}</p>
                                                                         <p>Keterangan   : {{ $isi->keterangan }}</p>
                                                                         <p>Stock        : {{ $isi->stock }}</p>
+                                                                        <img class="img-modal" src="{{ asset('produk/'.$isi->foto) }}" alt="">
                                                                     </div>
                                                                     <div class="modal-footer justify-content-between">
                                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -113,9 +114,51 @@
                                                     </div>
                                                 </td>
                                             @elseif ($isi->is_active == 1 && $isi->stock < 1)
-                                                <td class="text-center">Stock Habis</td>
+                                                <td class="text-center">
+                                                    <div class="form-rapi">
+                                                        <span class="badge1 bg-danger">Stock Habis</span>
+                                                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default{{ $isi->id }}">Update Stock</a>
+                                                    </div>
+                                                    <div class="modal fade" id="modal-default{{ $isi->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <form method="Post" action="/penjual/produk/stock/{{ $isi->id }}">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Update Stock</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label>Stock</label>
+                                                                            <input type="text" name="jumlah" value="{{ $isi->stock }}" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer justify-content-between">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                </td>
                                             @elseif ($isi->is_active == 0 && $isi->stock > 0)
-                                                <td class="text-center">Produk Dinonaktifkan</td>
+                                                <td class="text-center">
+                                                    <div class="form-rapi">
+                                                        <span class="badge1 bg-danger"><i class="fa-solid fa-ban"></i> Produk Dinonaktifkan</span>
+                                                        <form action="/penjual/produk/aktif/{{ $isi->id }}" method="post">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <button type="submit" class="btn btn-primary btn-sm">Aktifkan</button>
+                                                        </form>
+                                                    </div>
+                                                </td>
                                             @endif
                                         </tr>
                                         @empty

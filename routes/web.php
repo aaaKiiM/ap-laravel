@@ -55,6 +55,8 @@ Route::post('/penjual/produk/store', [ProdukController::class, 'store'])->middle
 Route::get('/penjual/produk/edit/{ID}', [ProdukController::class, 'edit'])->middleware('Batas');
 Route::put('/penjual/produk/update/{ID}', [ProdukController::class, 'update'])->middleware('Batas');
 Route::put('/penjual/produk/nonaktif/{ID}', [ProdukController::class, 'nonaktif'])->middleware('Batas');
+Route::put('/penjual/produk/aktif/{ID}', [ProdukController::class, 'aktif'])->middleware('Batas');
+Route::put('/penjual/produk/stock/{ID}', [ProdukController::class, 'stock'])->middleware('Batas');
 
 //Route Admin
 Route::get('/admn', [AdminController::class, 'index'])->middleware('verAdmin')->name('admin');

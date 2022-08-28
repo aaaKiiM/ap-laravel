@@ -270,7 +270,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admn/pesan" class="nav-link @yield('dataPesan')">
-                                    <i class="nav-icon fas fa-bread-slice"></i>
+                                    <i class="nav-icon fas fa-cart-shopping"></i>
                                     <p>
                                         Data Pesan
                                     </p>
@@ -287,7 +287,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/penjual/pesan" class="nav-link @yield('dataPesan')">
-                                    <i class="nav-icon fas fa-bread-slice"></i>
+                                    <i class="nav-icon fas fa-cart-shopping"></i>
                                     <p>
                                         Data Pesan
                                     </p>

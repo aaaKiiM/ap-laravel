@@ -167,7 +167,7 @@
                                                     <td class="table-brand"><h6>{{ $isi->produk->toko->nama_toko }}</h6></td>
                                                     <td class="table-quantity"><h6>{{ $isi->jumlah }} Buah</h6></td>
                                                     <td class="table-action">
-                                                        <a class="view" href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#product-view"><i class="fas fa-eye"></i></a>
+                                                        {{-- <a class="view" href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#product-view"><i class="fas fa-eye"></i></a> --}}
                                                         <a class="trash" href="#" title="Remove Wishlist"><i class="icofont-trash"></i></a>
                                                     </td>
                                                 </tr>

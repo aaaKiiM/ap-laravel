@@ -49,7 +49,7 @@
                                             {{-- <th class="text-center">Total Harga</th> --}}
                                             <th class="text-center">Pembayaran</th>
                                             <th class="text-center">Pengiriman</th>
-                                            {{-- <th class="text-center">Action</th> --}}
+                                            <th class="text-center">Bukti</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -100,10 +100,34 @@
                                                 </td>
                                                 <td class="text-center">
                                                     @if ($isi->dikirim == 1)
-                                                        <span class="badge1 bg-success">Sedang Dikirim</span>
+                                                        <span class="badge1 bg-success"><i class="fa-solid fa-truck-fast"></i> Sedang Dikirim</span>
                                                     @else
-                                                        <span class="badge1 bg-danger">Belum Dikirim</span>
+                                                        <span class="badge1 bg-danger"><i class="fa-solid fa-truck"></i> Belum Dikirim</span>
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default{{ $isi->id }}">Bukti</a>
+                                                    <div class="modal fade" id="modal-default{{ $isi->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">Bukti Pembayaran</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <img class="img-modal-bukti" src="{{ asset('bukti/'.$isi->bukti) }}" alt="">
+                                                                    </div>
+                                                                    <div class="modal-footer justify-content-between">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
                                                 </td>
                                                 {{-- <td class="text-center">
                                                     <a href="/toko/edit/{{$isi->id}}" class="btn btn-primary btn-sm">Edit</a>

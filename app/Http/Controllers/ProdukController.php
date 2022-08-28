@@ -38,6 +38,22 @@ class ProdukController extends Controller
         return redirect('/penjual/produks');
     }
 
+    public function aktif($id)
+    {
+        $produk = Produk::find($id);
+        $produk->is_active = 1;
+        $produk->save();
+        return redirect('/penjual/produks');
+    }
+
+    public function stock(Request $request,$id)
+    {
+        $produk = Produk::find($id);
+        $produk->stock = $request->jumlah;
+        $produk->save();
+        return redirect('/penjual/produks');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

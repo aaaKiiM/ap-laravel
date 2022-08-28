@@ -13,7 +13,7 @@
                     <div class="col-sm-3">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">DataTables</li>
+                            <li class="breadcrumb-item active">Data Pesan</li>
                         </ol>
                     </div>
                 </div>
@@ -27,8 +27,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="/produk/form" class="btn btn-primary">Tambah Produk</a>
-
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -84,7 +82,7 @@
                                                         {{-- <button type="submit" class="btn btn-group-sm btn-primary btn-sm">Masuk</button> --}}
                                                     </form>
                                                 @elseif ($isi->dikirim == 1)
-                                                    <span class="badge1 bg-success"><i class="fa-solid fa-circle-check"></i> Dikirim</span>
+                                                    <span class="badge1 bg-success"><i class="fa-solid fa-truck-fast"></i> Dikirim</span>
                                                 @endif
                                             </td>
                                             {{-- <td class="text-center">
